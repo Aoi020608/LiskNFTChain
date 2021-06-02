@@ -1,4 +1,4 @@
-import { BaseAsset } from 'lisk-sdk';
+const {BaseAsset} = require("lisk-sdk");
 const {getAllNFTTokens, setAllNFTTokens, createNFTToken} = require("../nft");
 
 class CreateNFTAsset extends BaseAsset {

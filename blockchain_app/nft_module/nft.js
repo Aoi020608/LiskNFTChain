@@ -1,4 +1,4 @@
-import { codec, cryptography } from 'lisk-sdk';
+const { codec, cryptography } = require('lisk-sdk');
 
 const registeredNFTTokenSchema = {
     $id: "lisk/nft/registeredTokens", 

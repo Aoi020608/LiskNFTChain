@@ -1,12 +1,12 @@
 use std::collections::HashMap;
-use crate::has_pair::has_pair_with_sum;
+use crate::has_pair::{has_pair_with_sum, has_pair_with_sum_2};
 
 mod has_pair;
 
 fn main() {
     // let boolean_value = contains_common_item1(vec!['a', 'b', 'c'], vec!['x', 'y', 'g']);
 
-    let boolean_value = has_pair_with_sum(vec!(1, 7, 4, 5), 8);
+    let boolean_value = has_pair_with_sum_2(vec!(1, 3, 9, 10), 8);
 
     println!("{}", boolean_value);
 }

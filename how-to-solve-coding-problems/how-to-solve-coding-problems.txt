@@ -9,5 +9,30 @@ Data Structures + Algorithms
 - Technical Skills 
 - Communication Skills
 
-
 3. 
+
+
+Data Structures
+- Arrays
+- Stacks
+- Queues
+- Linked Lists
+- Trees 
+- Tries
+- Graphs
+- Hash Tables
+
+Algorithms
+- Sorting
+- Dynamic Programming
+- BFS + DFS (Searching)
+- Recursion
+
+
+References: https://www.youtube.com/watch?v=XKu_SEDAykw
+
+
+
+
+
+

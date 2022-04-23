@@ -29,3 +29,29 @@ quadratic
 
 4. Drop Non Dominants
 
+
+
+O(n!)
+factorial time
+
+
+scalable 
+1. Speed
+
+2. Memory
+limited memory, not infinite
+RAM
+
+
+3 pillars
+1. readable
+2. speed -> time complexity
+3. memory -> space complexity
+stack
+
+heap
+
+
+
+
+

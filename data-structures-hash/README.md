@@ -19,6 +19,9 @@
 - Sorting
 - Access
 
+### Arrays
+
+
 
 ## References
 - https://en.wikipedia.org/wiki/List_of_data_structures

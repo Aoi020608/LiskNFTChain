@@ -171,6 +171,18 @@ pub fn find_recurring_character(arr1: Vec<i32>) -> Option<i32> {
     return None;
 }
 
+pub fn find_recurring_character1(arr1: Vec<i32>) -> Option<i32> {
+    for i in 0..arr1.len() {
+        for j in i + 1..arr1.len() {
+            if arr1[i] == arr1[j] {
+                return Some(arr1[i]);
+            }
+        }
+    }
+
+    return None;
+}
+
 fn main() {
     // const N: usize = 100_000;
 
@@ -193,9 +205,13 @@ fn main() {
     //     println!("Not Found");
     // }
 
-    let array: Vec<i32> = vec!(2, 3, 4, 5);
+    let array: Vec<i32> = vec![2, 3, 3, 5];
 
-    let num = find_recurring_character(array).expect("undefined");
+    let num = find_recurring_character(array);
+    match num {
+        Some(res) => println!("{res}"),
+        None => println!("undefined"),
+    }
 
-    println!("{:?}", num);
+    // println!("{:?}", num);
 }

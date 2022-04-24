@@ -1,30 +1,18 @@
-# Data Structure
+# Data Structure - Hash
 
 
 ## Description
-1. How to Build One
-2. How to Use it
+Hash Tables -> key, value pair
 
+key
+index
 
-## What is a Data Structure?
-- arrangement of data, can define the way you interact with this data and how it is arranged in RAM
-- 
+value
 
+hash function
+-> we give it an input and the function generates some random pattern.
+-> one way
+-> idempotent
+-> take input, generate some sort of gibberish and then convert it to an index base or an address base that it has based on this number.
 
-## Operations On Data Structures
-- Insertion
-- Deletion
-- Traversal
-- Searching
-- Sorting
-- Access
-
-### Arrays
-
-
-
-## References
-- https://en.wikipedia.org/wiki/List_of_data_structures
-- https://www.youtube.com/watch?v=fpnE6UAfbtU
-- https://statmath.wu.ac.at/courses/data-analysis/itdtHTML/node55.html
 

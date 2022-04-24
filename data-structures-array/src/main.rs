@@ -37,9 +37,28 @@ fn main() {
 
     println!("{:?}", new_my_array);
     */
-    let word = "Hello my name is Tom";
-    reverse(word);
+    // let word = "Hello my name is Tom";
+    // reverse(word);
     // println!("{:?}", reversed_word);
+    let mut arr1 = vec![3, 2, 4];
+    let target = 6;
+    let sum_array = two_sum(arr1, target);
+    println!("{:?}", sum_array);
+}
+
+pub fn two_sum(nums: Vec<i32>, target: i32) -> Vec<i32> {
+    let mut pairs = Vec::new();
+    for i in 0..nums.len() {
+        let diff = target - nums[i];
+        for j in i + 1..nums.len() {
+            if diff == nums[j] {
+                pairs.push(i as i32);
+                pairs.push(j as i32);
+                return pairs;
+            }
+        }
+    }
+    return pairs;
 }
 
 #[derive(Debug)]
@@ -52,11 +71,11 @@ impl MyArray {
     pub fn new() -> Self {
         MyArray {
             length: 0,
-            data: vec!(),
+            data: vec![],
         }
     }
 
-    pub fn get(&self, index: usize) ->  i32 {
+    pub fn get(&self, index: usize) -> i32 {
         self.data[index]
     }
 
@@ -64,7 +83,7 @@ impl MyArray {
         self.data.clone()
     }
 
-    pub fn push(&mut self, item: i32) -> Vec<i32>{
+    pub fn push(&mut self, item: i32) -> Vec<i32> {
         self.data.push(item);
         self.length += 1;
         self.data.clone()
@@ -90,5 +109,22 @@ pub fn reverse(string: &str) {
     }
     let joined_word = String::from_iter(new_iter);
     println!("{:?}", joined_word);
+}
 
+pub fn merge_sort_arrays(arr1: &mut Vec<i32>, arr2: &mut Vec<i32>) -> Vec<i32> {
+    // let mut new_array: Vec<i32> = Vec::new();
+
+    if arr1.len() == 0 {
+        return arr2.to_vec();
+    }
+
+    if arr2.len() == 0 {
+        return arr1.to_vec();
+    }
+
+    arr1.append(arr2);
+    arr1.sort();
+    println!("{:?}", arr1);
+
+    return arr1.to_vec();
 }

@@ -26,4 +26,16 @@ collision
 
 Hash Tables VS Arrays
 
+Pros: 
+Fast lookupps
+Fast inserts
+Flexible Keys
+
+=> Good collision resolution needed
+
+
+Cons: 
+Unordered
+Slow key iteration
+
 

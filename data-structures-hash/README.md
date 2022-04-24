@@ -24,3 +24,6 @@ main problems
 collision
 -> Linked list
 
+Hash Tables VS Arrays
+
+

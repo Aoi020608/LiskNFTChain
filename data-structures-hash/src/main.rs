@@ -1,3 +1,4 @@
+use std::collections::HashMap;
 use std::time::Instant;
 
 mod hash {
@@ -156,6 +157,20 @@ fn benchmark_std_chad_table(n: usize) {
     }
 }
 
+pub fn find_recurring_character(arr1: Vec<i32>) -> Option<i32> {
+    let mut map = HashMap::new();
+
+    for i in 0..arr1.len() {
+        if let Some(res) = map.get(&arr1[i]) {
+            return Some(*res);
+        } else {
+            map.insert(arr1[i], arr1[i]);
+        }
+    }
+
+    return None;
+}
+
 fn main() {
     // const N: usize = 100_000;
 
@@ -167,11 +182,20 @@ fn main() {
     // benchmark_std_chad_table(N);
     // println!("std Chad Table: {}", end.elapsed().as_secs_f32());
 
-    let mut hash = hash::HashTable::<usize, usize>::new();
-    hash.insert(1, 10);
-    if let Some(res) = hash.get(&1) {
-        println!("{}", res);
-    } else {
-        println!("Not Found");
-    }
+    // let mut hash = hash::HashTable::<usize, usize>::new();
+    // let key: usize = 1;
+    // let value: usize = 1000;
+
+    // hash.insert(key, value);
+    // if let Some(res) = hash.get(&key) {
+    //     println!("Found: {}", res);
+    // } else {
+    //     println!("Not Found");
+    // }
+
+    let array: Vec<i32> = vec!(2, 3, 4, 5);
+
+    let num = find_recurring_character(array).expect("undefined");
+
+    println!("{:?}", num);
 }

@@ -24,10 +24,26 @@ allows us to traverse out list backwards
 hold a little bit more memory
 
 
+low level data structures
+
+
+Pros
+Fast Insertion
+Fast Deletion
+Ordered
+Flexible Size
+
+
+Cons
+Slow Lookup
+More Memory
+
 
 
 ## References
 - https://visualgo.net/en/list
+- https://rust-unofficial.github.io/too-many-lists/first-layout.html
+
 
 
 

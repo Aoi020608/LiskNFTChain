@@ -277,13 +277,14 @@ impl<T> SinglyLinkedList<T> {
 }
 
 */
-
+#[derive(Debug)]
 pub struct List<T> {
     head: Link<T>,
 }
 
 type Link<T> = Option<Box<Node<T>>>;
 
+#[derive(Debug)]
 struct Node<T> {
     elem: T,
     next: Link<T>,
@@ -303,8 +304,19 @@ impl<T> List<T> {
         self.head = Some(new_node);
     }
 
+    ///Second, match option { None => None, Some(x) => Some(y) } is such an incredibly common 
+    /// idiom that it was called map. map takes a function to execute on the x in the Some(x) to produce 
+    /// the y in Some(y). We could write a proper fn and pass it to map, but we'd much rather write what to do inline.
     pub fn pop(&mut self) -> Option<T> {
+        // match self.head.take() {
+        //     None => None,
+        //     Some(node) => {
+        //         self.head = node.next;
+        //         Some(node.elem)
+        //     }
+        // }
         self.head.take().map(|node| {
+            // println!("{:?}", node);
             self.head = node.next;
             node.elem
         })
@@ -315,7 +327,7 @@ impl<T> List<T> {
     }
 
     pub fn peek_mut(&mut self) -> Option<&mut T> {
-        self.head.as_ref().map(|node| &mut node.elem)
+        self.head.as_mut().map(|node| &mut node.elem)
     }
 
     pub fn into_iter(self) -> IntoIter<T> {

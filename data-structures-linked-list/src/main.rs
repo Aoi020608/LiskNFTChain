@@ -82,26 +82,36 @@ fn main() {
     //     Some(val) => println!("{:?}", val),
     // }
 
-    let mut linked_list: SinglyLinkedList<usize> = SinglyLinkedList::new();
-    for i in 0..5 {
-        linked_list.push_front(i);
-    }
+    // let mut linked_list: SinglyLinkedList<usize> = SinglyLinkedList::new();
+    // for i in 0..5 {
+    //     linked_list.push_front(i);
+    // }
 
-    // linked_list.pop_front();
-    let result_insert = linked_list.insert_after(1, 99);
-    let result_remove = linked_list.remove(1);
-    println!("{:?}", result_insert);
-    println!("{:?}", result_remove);
+    // // linked_list.pop_front();
+    // let result_insert = linked_list.insert_after(1, 99);
+    // let result_remove = linked_list.remove(1);
+    // println!("{:?}", result_insert);
+    // println!("{:?}", result_remove);
 
-    println!("{:?}", linked_list);
+    // println!("{:?}", linked_list);
 
-    let mut doubly_list: DoublyLinkedList<usize> = DoublyLinkedList::new();
+    // let mut doubly_list: DoublyLinkedList<usize> = DoublyLinkedList::new();
 
-    for i in 0..5 {
-        doubly_list.push_front(i)
-    }
+    // for i in 0..5 {
+    //     doubly_list.push_front(i)
+    // }
 
-    println!("{:?}", doubly_list.len());
+    // println!("{:?}", doubly_list.len());
     
+    let mut list = List::new();
+    list.push(1);
+    list.push(34);
+    list.push(89);
+
+    list.peek().map(|node| println!("{}", node));
+
+    let mut iter = list.into_iter();
+    let number = iter.next().unwrap();
+    println!("{}", number);
 
 }

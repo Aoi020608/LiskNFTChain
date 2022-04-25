@@ -86,8 +86,10 @@ fn main() {
     }
 
     // linked_list.pop_front();
-    let result = linked_list.insert_after(1, 99);
-    println!("{:?}", result);
+    let result_insert = linked_list.insert_after(1, 99);
+    let result_remove = linked_list.remove(1);
+    println!("{:?}", result_insert);
+    println!("{:?}", result_remove);
 
     println!("{:?}", linked_list);
 

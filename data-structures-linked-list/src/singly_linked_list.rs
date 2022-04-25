@@ -187,6 +187,7 @@ impl<T> SinglyLinkedList<T> {
             }
             ListNode::Empty => None,
         }
+        // self.size -= 1;
         // if let ListNode::NonEmpty(node) = head {
         //     self.head = node.next;
         //     self.size -= 1;
@@ -217,6 +218,31 @@ impl<T> SinglyLinkedList<T> {
                 *curr = Box::new(ListNode::NonEmpty(node));
             }
             ListNode::Empty => return Err(pos - pos_),
+        }
+
+        Ok(())
+    }
+
+    pub fn remove(&mut self, pos_: usize) -> Result<(), usize> {
+        let mut curr = &mut self.head;
+        let mut pos = pos_;
+
+        while pos > 0 {
+            // let curr = &mut curr.as_mut();
+            curr = match curr.as_mut() {
+                ListNode::NonEmpty(node) => &mut node.next,
+                ListNode::Empty => return Err(pos),
+            };
+
+            pos -= 1;
+        }
+
+        match curr.take() {
+            ListNode::NonEmpty(node) => {
+                *curr = node.next;
+                self.size -= 1;
+            }
+            ListNode::Empty => return Err(pos),
         }
 
         Ok(())

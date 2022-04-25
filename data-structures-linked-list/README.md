@@ -20,6 +20,10 @@ pointers -- reference to something else in memory,
 
 
 doubly linked list
+allows us to traverse out list backwards
+hold a little bit more memory
+
+
 
 
 ## References

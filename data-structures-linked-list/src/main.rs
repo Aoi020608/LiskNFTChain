@@ -3,6 +3,8 @@ use std::fmt::{self, Display, Formatter};
 use std::marker::PhantomData;
 use std::ptr::NonNull;
 
+use crate::singly_linked_list::*;
+
 mod singly_linked_list;
 
 struct Node<T> {
@@ -69,12 +71,24 @@ impl<T> LinkedList<T> {
 }
 
 fn main() {
-    let mut my_linked_list = LinkedList::<String>::new();
-    my_linked_list.insert_at_head("Hello".to_string());
-    my_linked_list.insert_at_head("world!".to_string());
+    // let mut my_linked_list = LinkedList::<String>::new();
+    // my_linked_list.insert_at_head("Hello".to_string());
+    // my_linked_list.insert_at_head("world!".to_string());
 
-    match my_linked_list.get(0) {
-        None => panic!("Expected to find {} at index 1", "Hello"),
-        Some(val) => println!("{:?}", val),
+    // match my_linked_list.get(0) {
+    //     None => panic!("Expected to find {} at index 1", "Hello"),
+    //     Some(val) => println!("{:?}", val),
+    // }
+
+    let mut linked_list: SinglyLinkedList<usize> = SinglyLinkedList::new();
+    for i in 0..5 {
+        linked_list.push_front(i);
     }
+
+    // linked_list.pop_front();
+    let result = linked_list.insert_after(1, 99);
+    println!("{:?}", result);
+
+    println!("{:?}", linked_list);
+
 }

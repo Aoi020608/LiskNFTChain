@@ -18,6 +18,10 @@ delete O(n)
 pointers -- reference to something else in memory, 
 
 
+
+doubly linked list
+
+
 ## References
 - https://visualgo.net/en/list
 

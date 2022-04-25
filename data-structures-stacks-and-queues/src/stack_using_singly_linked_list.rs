@@ -134,6 +134,7 @@ impl<'a, T> Iterator for IterMut<'a, T> {
 mod test_stack {
     use crate::stack_using_singly_linked_list::*;
 
+    #[test]
     fn basics() {
         let mut list = Stack::new();
         assert_eq!(list.pop(), Err("Stack is empty"));
@@ -156,5 +157,65 @@ mod test_stack {
         assert_eq!(list.pop(), Err("Stack is empty"));
 
         assert_eq!(list.is_empty(), true);
+    }
+
+    #[test]
+    fn peek() {
+        let mut list = Stack::new();
+        assert_eq!(list.is_empty(), true);
+        list.push(1);
+        list.push(2);
+        list.push(3);
+
+        assert_eq!(list.peek(), Some(&3));
+        assert_eq!(list.peek_mut(), Some(&mut 3));
+
+        match list.peek_mut() {
+            None => None,
+            Some(value) => Some(*value = 42),
+        };
+
+        assert_eq!(list.peek(), Some(&42));
+        assert_eq!(list.pop(), Ok(42));
+    }
+
+    #[test]
+    fn into_iter() {
+        let mut list = Stack::new();
+        list.push(1);
+        list.push(2);
+        list.push(3);
+
+        let mut iter = list.into_iter_for_stack();
+        assert_eq!(iter.next(), Some(3));
+        assert_eq!(iter.next(), Some(2));
+        assert_eq!(iter.next(), Some(1));
+        assert_eq!(iter.next(), None);
+    }
+
+    #[test]
+    fn iter() {
+        let mut list = Stack::new();
+        list.push(1);
+        list.push(2);
+        list.push(3);
+
+        let mut iter = list.iter();
+        assert_eq!(iter.next(), Some(&3));
+        assert_eq!(iter.next(), Some(&2));
+        assert_eq!(iter.next(), Some(&1));
+    }
+
+    #[test]
+    fn iter_mut() {
+        let mut list = Stack::new();
+        list.push(1);
+        list.push(2);
+        list.push(3);
+
+        let mut iter = list.iter_mut();
+        assert_eq!(iter.next(), Some(&mut 3));
+        assert_eq!(iter.next(), Some(&mut 2));
+        assert_eq!(iter.next(), Some(&mut 1));
     }
 }

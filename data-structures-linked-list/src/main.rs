@@ -4,8 +4,10 @@ use std::marker::PhantomData;
 use std::ptr::NonNull;
 
 use crate::singly_linked_list::*;
+use crate::doubly_linked_list::*;
 
 mod singly_linked_list;
+mod doubly_linked_list;
 
 struct Node<T> {
     val: T,
@@ -92,5 +94,14 @@ fn main() {
     println!("{:?}", result_remove);
 
     println!("{:?}", linked_list);
+
+    let mut doubly_list: DoublyLinkedList<usize> = DoublyLinkedList::new();
+
+    for i in 0..5 {
+        doubly_list.push_front(i)
+    }
+
+    println!("{:?}", doubly_list.len());
+    
 
 }

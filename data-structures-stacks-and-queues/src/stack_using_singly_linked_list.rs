@@ -9,7 +9,7 @@ struct Node<T> {
     next: Link<T>,
 }
 
-impl<T> Stack<T> {
+impl<T> Stack<T>  {
     pub fn new() -> Self {
         Stack { head: None }
     }
@@ -41,6 +41,7 @@ impl<T> Stack<T> {
         //     None => None,
         //     Some(head) => Some(&head.elem),
         // }
+        // First, cast `Option<T>` to `Option<&T>` with `as_ref`,
         match self.head.as_ref() {
             None => None,
             Some(node) => Some(&node.elem),

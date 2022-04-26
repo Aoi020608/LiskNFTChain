@@ -37,6 +37,10 @@ Tail Call Optimazation
 - every time we are using a tree or converting something into a tree, consider recursion.
 - divide and conquer using recursion
 
+1. Divided into a number of subproblems that are smaller instances of the same problem.
+2. Each instance of the subproblem is identical in nature. 
+3. The solutions of each subproblem can be combined to solve the problem at hand.
+
 ## References
 - https://2ality.com/2015/06/tail-call-optimization.html
 

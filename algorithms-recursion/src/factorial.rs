@@ -31,6 +31,10 @@ fn fibonacci_iterative_recursive(num: u32) -> u32 {
     arr[num as usize]
 }
 
+fn reverse_string(string: &str) -> &str {
+    let vec = string.chars().collect();
+}
+
 #[cfg(test)]
 mod tests {
     use crate::factorial::*;

@@ -53,6 +53,11 @@ References: https://www.youtube.com/watch?v=XKu_SEDAykw
 
 
 
+Data Structures + Algorithms = Programs
+Class {} + function() = Programs
+
+
+
 ## References
 - https://en.wikipedia.org/wiki/List_of_data_structures
 - https://www.youtube.com/watch?v=fpnE6UAfbtU

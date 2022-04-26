@@ -66,6 +66,36 @@ impl Node {
             }
         }
     }
+
+    pub fn remove(&mut self, value: i32) {
+        if self.value == value {
+            match self.right {
+                None => {
+                    
+                },
+                Some(node) => {
+                    match self.left {
+                        None => self.left = None,
+                        Some(node) => self.value = node,
+                    }
+                }
+            }
+            // return true;
+        }
+        if self.value > value {
+            match self.left {
+                None => false,
+                Some(ref mut node) => node.remove(value),
+            }
+        } else {
+            match self.right {
+                None => false,
+                Some(ref mut node) => node.remove(value),
+            }
+        }
+    }
+
+    
 }
 
 // cargo test -- --nocapture

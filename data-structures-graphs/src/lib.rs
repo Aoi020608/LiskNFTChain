@@ -1,3 +1,9 @@
+/// Edge List
+/// const graph = [[0, 2], []]
+/// 
+mod graph;
+
+
 #[cfg(test)]
 mod tests {
     #[test]

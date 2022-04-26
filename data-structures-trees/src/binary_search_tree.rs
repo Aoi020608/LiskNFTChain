@@ -3,13 +3,14 @@
 /// Level 2: 2^2 = 4
 /// Level 3: 2^3 = 6
 /// Level 4: 2^4 = 8
-/// 
-/// 
+///
+///
 
-struct Node{
+#[derive(Debug)]
+struct Node {
+    value: i32,
     left: Option<Box<Node>>,
     right: Option<Box<Node>>,
-    value: i32,
 }
 
 impl Node {
@@ -17,20 +18,34 @@ impl Node {
         Node {
             left: None,
             right: None,
-            value
+            value,
         }
     }
 
+    ///
     pub fn insert(&mut self, value: i32) {
         if self.value > value {
+            // left node
             match self.left {
-                None => self.left = Some(Box::new(Node{value, left: None, right: None})),
-                Some(ref mut node) => node.insert(value)
+                None => {
+                    self.left = Some(Box::new(Node {
+                        value,
+                        left: None,
+                        right: None,
+                    }))
+                }
+                Some(ref mut node) => node.insert(value),
             }
         } else {
             match self.right {
-                None => self.right = Some(Box::new(Node {value, left: None, right: None})),
-                Some(ref mut node) => node.insert(value)
+                None => {
+                    self.right = Some(Box::new(Node {
+                        value,
+                        left: None,
+                        right: None,
+                    }))
+                }
+                Some(ref mut node) => node.insert(value),
             }
         }
     }
@@ -47,16 +62,13 @@ impl Node {
         } else {
             match self.right {
                 None => false,
-                Some(ref node) => node.lookup(value)
+                Some(ref node) => node.lookup(value),
             }
         }
     }
-
-    // pub fn is_empty(&self) -> bool {
-        
-    // }
 }
 
+// cargo test -- --nocapture
 
 #[cfg(test)]
 
@@ -65,16 +77,18 @@ mod tests {
 
     #[test]
     fn test_insert() {
-        let mut tree = Node::new(0);
+        let mut tree = Node::new(5);
         tree.insert(1);
-        tree.insert(2);
-        tree.insert(3);
-        assert_eq!(tree.lookup(3), true);
-        assert_eq!(tree.lookup(4), false);
+        tree.insert(6);
+        tree.insert(4);
+        assert_eq!(tree.lookup(1), true);
+    }
+
+    #[test]
+    fn test_lookup() {
+        let mut tree = Node::new(5);
+        tree.insert(1);
+        assert_eq!(tree.lookup(1), true);
+        assert_eq!(tree.lookup(7), false);
     }
 }
-
-
-
-
-

@@ -1,4 +1,5 @@
-mod breadth_first_search;
+// mod breadth_first_search;
+mod depth_first_search;
 
 // #[cfg(test)]
 // mod tests {

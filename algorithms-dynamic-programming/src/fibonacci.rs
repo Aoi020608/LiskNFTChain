@@ -25,6 +25,14 @@ pub fn fibonacci_1(n: i32) -> i32 {
     return fibonacci_1(n - 1) + fibonacci(n - 2);
 }
 
+pub fn fibonacci_2(n: i32) -> i32 {
+    let mut answer: Vec<i32> = vec![0, 1];
+    for i in 2..=n {
+        answer.push(answer[i as usize - 2] + answer[i as usize - 1]);
+    }
+    return answer.pop().unwrap();
+}
+
 #[cfg(test)]
 mod tests {
     use crate::fibonacci::*;
@@ -37,6 +45,12 @@ mod tests {
     #[test]
     fn test_fibonacci_1() {
         let num = fibonacci_1(11);
+        assert_eq!(num, 89);
+    }
+
+    #[test]
+    fn test_fibonacci_2() {
+        let num = fibonacci_2(11);
         assert_eq!(num, 89);
     }
 }

@@ -55,7 +55,7 @@ impl From<(u32, u32)> for Edge {
 }
 
 // preorder
-pub fn depth_first_search(graph: &Graph, root: Vertex, objectives: Vertex) -> Option<Vec<u32>> {
+pub fn depth_first_search_preorder(graph: &Graph, root: Vertex, objectives: Vertex) -> Option<Vec<u32>> {
     let mut visited = HashSet::new();
     let mut history = Vec::new();
     let mut queue = VecDeque::new();
@@ -110,7 +110,7 @@ mod tests {
         );
 
         assert_eq!(
-            depth_first_search(&graph, root.into(), objectives.into()),
+            depth_first_search_preorder(&graph, root.into(), objectives.into()),
             None
         );
     }
@@ -131,7 +131,7 @@ mod tests {
         );
 
         assert_eq!(
-            depth_first_search(&graph, root.into(), objectives.into()),
+            depth_first_search_preorder(&graph, root.into(), objectives.into()),
             Some(correct_path)
         )
     }
